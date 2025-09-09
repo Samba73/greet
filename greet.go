@@ -9,3 +9,7 @@ func Hello(name string) string {
 func Bye(name string) string {
 	return fmt.Sprintf("Goodbye, %s!", name)
 }
+
+func Welcome(name string) string {
+	return fmt.Sprintf("Welcome, %s!", name)
+}
