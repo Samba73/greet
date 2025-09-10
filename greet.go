@@ -1,15 +1,31 @@
 package greet
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
-func Hello(name string) string {
-	return fmt.Sprintf("Hello, %s!", name)
+func Hello(name string) (string, error) {
+	if name == "" {
+		return "Error", errors.New("empty name")
+	}
+	// return fmt.Sprintf("Hello, %s!", name)
+	message := fmt.Sprintf("Hello, %s", name)
+	return message, nil
 }
 
-func Bye(name string) string {
-	return fmt.Sprintf("Goodbye, %s!", name)
+func Bye(name string) (string, error) {
+	if name == "" {
+		return "Error", errors.New("empty name")
+	}
+	message := fmt.Sprintf("Goodbye, %s!", name)
+	return message, nil
 }
 
-func Welcome(name string) string {
-	return fmt.Sprintf("Welcome, %s!", name)
+func Welcome(name string) (string, error) {
+	if name == "" {
+		return "Error", errors.New("empty name")
+	}
+	message := fmt.Sprintf("Welcome, %s!", name)
+	return message, nil
 }
