@@ -3,29 +3,48 @@ package greet
 import (
 	"errors"
 	"fmt"
+	"math/rand"
 )
 
-func Hello(name string) (string, error) {
+func Message(name string) (string, error) {
 	if name == "" {
-		return "Error", errors.New("empty name")
+		return "error", errors.New("empty name")
 	}
-	// return fmt.Sprintf("Hello, %s!", name)
-	message := fmt.Sprintf("Hello, %s", name)
+	message := fmt.Sprintf(randomFormat(), name)
 	return message, nil
 }
 
-func Bye(name string) (string, error) {
-	if name == "" {
-		return "Error", errors.New("empty name")
+func randomFormat() string {
+	formats := []string{
+		"Hi, %v, Welcome!",
+		"Great to see you, %v",
+		"Hail, %v! Well met!",
 	}
-	message := fmt.Sprintf("Goodbye, %s!", name)
-	return message, nil
+
+	return formats[rand.Intn(len(formats))]
 }
 
-func Welcome(name string) (string, error) {
-	if name == "" {
-		return "Error", errors.New("empty name")
-	}
-	message := fmt.Sprintf("Welcome, %s!", name)
-	return message, nil
-}
+// func Hello(name string) (string, error) {
+// 	if name == "" {
+// 		return "Error", errors.New("empty name")
+// 	}
+// 	// return fmt.Sprintf("Hello, %s!", name)
+// 	message := fmt.Sprintf("Hello, %s", name)
+// 	return message, nil
+// }
+
+// func Bye(name string) (string, error) {
+// 	if name == "" {
+// 		return "Error", errors.New("empty name")
+// 	}
+// 	message := fmt.Sprintf("Goodbye, %s!", name)
+// 	return message, nil
+// }
+
+// func Welcome(name string) (string, error) {
+// 	if name == "" {
+// 		return "Error", errors.New("empty name")
+// 	}
+// 	message := fmt.Sprintf("Welcome, %s!", name)
+// 	return message, nil
+// }
