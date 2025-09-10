@@ -1,3 +1,3 @@
-module github.com/Samba73/greet/v2
+module github.com/Samba73/greet
 
 go 1.25.1
